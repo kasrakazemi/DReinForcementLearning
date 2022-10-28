@@ -1,0 +1,20 @@
+numpy>=1.17.0
+pandas>=0.25.0
+gym>=0.15.7
+pyyaml>=5.1.2
+stochastic>=0.6.0
+#tensorflow>=2.7.0
+ipython>=7.12.0
+matplotlib>=3.1.1
+plotly>=4.5.0
+ipywidgets>=7.0.0  # Required for rendering
+deprecated>=1.2.13
+stable-baselines3>=1.6.0	# Required for model building
+ray>=2.0	 # Required for model building
+stockstats # Required for calculate indicators
+optuna	  #Required for hyperparameter optimization
+zigzag	# Required for calculate zigzag indicator
+stockstats	# Required for calculate indicators
+tabulate	# Required for draw tables
+torch       # Required for RL model
+scipy       # Required for math calculation

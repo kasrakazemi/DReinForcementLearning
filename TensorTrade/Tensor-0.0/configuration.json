@@ -1,0 +1,70 @@
+{
+  "Data_Path": "C:/Users/kasra/Downloads/Ten-Surf/Tensurf-RL/data/LOB1_NQU22-CME_1min_2PercentSum_100PercentOrders_Overlapped_20Jun2022_19Sep2022.csv",
+  "Data_Resized_Path": "C:/Users/kasra/Downloads/Ten-Surf/Tensurf-RL/data/LOB_ov_Added_NQU22-CME_2_1_1_Edited.LOB",
+  "Data_type": "LOB",
+  "Swing_SL_TP": "False",
+  "feature_extraction_params": [[5,20,60],[0.01, 0.02, 0.005]],
+  "SEED":1,
+  "RUNNING_MODE": "normal",
+  "All_types_of_the_RUNNING_MODE": ["normal","optimize","online","online_optimize"],
+  "TRAINED_MODEL_DIR":"logs",
+  "TENSORBOARD_LOG_DIR":"tensorboard_log",
+  "SCALER_FILE":"./scaler",
+  "RESULTS_DIR":"results",
+  "DB_NAME": "optuna_dqn_multiObj",
+  "DB_SETTINGS": {"host":"localhost",
+   "user":"root",
+   "password":"Sql1234#"},
+  "ONLINE_MODE_CONFIG": {
+   "train_days": 60,
+   "trade_days": 20,
+   "number_of_runs": 5
+  },
+  "CONTINUE_TRAINING":"False",
+  "NORMALIZATION_METHOD":"ZScore",
+  "TECHNICAL_INDICATORS_LIST":["macd","macdh","macds","rsi_14","dx","adx", "boll", "boll_ub", "boll_lb", "close_100_sma","close_50_sma","close_10_sma","dma"],
+  "TRAIN_DATA_PERCENTAGE":0.7,
+  "TEST_DATA_PERCENTAGE":0.3,
+  "TOTAL_TIMESTEPS":40000,
+  "MODEL_NAME":"dqn",
+  "A2C_PARAMS":{
+     "n_steps":5,
+     "ent_coef":0.01,
+     "learning_rate":0.0007
+  },
+  "PPO_PARAMS":{
+     "ent_coef":0.01,
+     "learning_rate":0.0005,
+     "batch_size":64
+  },
+  "DDPG_PARAMS":{
+     "batch_size":128,
+     "buffer_size":50000,
+     "learning_rate":0.001
+  },
+  "TD3_PARAMS":{
+     "batch_size":100,
+     "buffer_size":1000000,
+     "learning_rate":0.001
+  },
+  "SAC_PARAMS":{
+     "batch_size":64,
+     "buffer_size":100000,
+     "learning_rate":0.0001,
+     "learning_starts":100,
+     "ent_coef":"auto_0.1"
+  },
+  "DQN_PARAMS":{
+     "tau":1,
+     "batch_size":256,
+     "buffer_size":30000,
+     "learning_rate":0.0005,
+     "gamma":0.99,
+   "exploration_final_eps": 0.2, 
+   "exploration_fraction": 0.2, 
+   "target_update_interval": 16000, 
+   "learning_starts": 5000, 
+   "train_freq": 8, 
+   "gradient_steps": 1
+  }
+}
