@@ -66,8 +66,6 @@ class FeatureEngineering:
 
     def zscore_nomalization(self,data, freq=2000):
 
-           
-
             data["Muopen"] = data["open"].rolling(window=freq,).mean()
             data["STDopen"] = data["open"].rolling(window=freq,).std()
             #
@@ -103,9 +101,6 @@ class FeatureEngineering:
             #
             data["Musum_lob_ask"] = data["sum_lob_ask"].rolling(window=freq,).mean()
             data["STDsum_lob_ask"] = data["sum_lob_ask"].rolling(window=freq,).std()
-            #
-            
-           
             #
             data["Mubid_volume_60min"] = data["bid_volume_60min"].rolling(window=freq,).mean()
             data["STDbid_volume_60min"] = data["bid_volume_60min"].rolling(window=freq,).std()
@@ -154,8 +149,7 @@ class FeatureEngineering:
             #
             data["Mubid_number_5min"] = data["bid_number_5min"].rolling(window=freq,).mean()
             data["STDbid_number_5min"] = data["bid_number_5min"].rolling(window=freq,).std()
-           
-        
+
             #
             data["Muask_volume_60min"] = data["ask_volume_60min"].rolling(window=freq,).mean()
             data["STDask_volume_60min"] = data["ask_volume_60min"].rolling(window=freq,).std()

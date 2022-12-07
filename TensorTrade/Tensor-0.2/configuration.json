@@ -1,0 +1,122 @@
+{
+  "Data_Path": "LOB1_NQU22-CME_1min_2PercentSum_100PercentOrders_Overlapped_20Jun2022_19Sep2022.csv",
+  "Data_Resized_Path": "LOB1_NQZ22_1min_2PercentSum_100PercentOrders_Overlapped_2.csv",
+  "Data_type": "LOB",
+
+  "Feature_engineering" :{  
+  "window_sizes":[5,20,60],
+  "lob_percentages":[0.01, 0.02, 0.005],
+  "NORMALIZATION_METHOD":"ZScore",
+  "TECHNICAL_INDICATORS_LIST":["macd","macdh","macds","rsi_14","dx","adx", "boll", "boll_ub", "boll_lb", "close_100_sma","close_50_sma","close_10_sma","dma"],
+  "TRAIN_DATA_PERCENTAGE":0.7,
+  "TEST_DATA_PERCENTAGE":0.3
+  },
+
+  "RUNNING_MODE": "train",
+  "All_types_of_the_RUNNING_MODE": ["train","backtest","optimize","online"],
+  "TRAINED_MODEL_DIR":"logs",
+  "TENSORBOARD_LOG_DIR":"tensorboard_log",
+  "RESULTS_DIR":"results",
+
+  "ONLINE_MODE_CONFIG": {
+   "train_days": 60,
+   "trade_days": 20,
+   "number_of_runs": 5
+  },
+
+  "CONTINUE_TRAINING": false,
+
+  "env_config_train" :{
+   "zigzag_param_reward":0.0015,
+   "zigzag_param":0.0021,
+   "lookback":800,
+   "USE_LAST_ACTION":false,
+   "WINDOW_NORMALIZE":false,
+   "PRICE_AS_RETURN":false,
+   "USE_CURRENT_PNL":false,
+   "ADJUSTED_REWARD":false,     
+   "REWARD_CALCULATION":"zigzag_based",
+   "PRICE_CALCULATION_TYPE":"open",
+   "MAX_NUM_SHARES":1,
+   "MIN_PROFIT":0.05,
+   "Exchange_Commission": 0.6,
+   "SL_mode":"swing",
+   "Scipy_neighborhood":5,
+   "STOP_LOSS": 400,
+   "STOP_LOSS_COEF": 1,
+   "REWARD_SCALING":0.0005,
+   "INITIAL_ACCOUNT_BALANCE":1000,
+   "R2R": 1,
+   "TIMESTEPS": 100
+  },
+
+  "env_config_test" : {
+   "lookback":800,
+   "USE_LAST_ACTION":false,
+   "WINDOW_NORMALIZE":false,
+   "PRICE_AS_RETURN":false,
+   "USE_CURRENT_PNL":false,   
+   "PRICE_CALCULATION_TYPE":"open",
+   "MAX_NUM_SHARES":1,
+   "MIN_PROFIT":0.05,
+   "Exchange_Commission": 0.6,
+   "STOP_LOSS_COEF": 1,
+   "INITIAL_ACCOUNT_BALANCE":1000, 
+   "TIMESTEPS": 100,
+   "SL_mode":"swing",
+   "Scipy_neighborhood":5,
+   "STOP_LOSS": 400,
+   "R2R": 1,
+   "Run_Mode":"train"
+  },
+
+  "MODEL_NAME":"a2c",
+
+  "A2C_PARAMS":{
+     "net_arch":"MlpPolicy",
+     "n_steps":5,
+     "ent_coef":0.01,
+     "vf_coef":0.1,
+     "learning_rate":0.0009,
+     "TOTAL_TIMESTEPS":110000,
+     "SEED":0
+  },
+  "PPO_PARAMS":{
+     "ent_coef":0.01,
+     "learning_rate":0.0005,
+     "batch_size":64
+  },
+  "DDPG_PARAMS":{
+     "batch_size":128,
+     "buffer_size":50000,
+     "learning_rate":0.001
+  },
+  "TD3_PARAMS":{
+     "batch_size":100,
+     "buffer_size":1000000,
+     "learning_rate":0.001
+  },
+  "SAC_PARAMS":{
+     "batch_size":64,
+     "buffer_size":100000,
+     "learning_rate":0.0001,
+     "learning_starts":100,
+     "ent_coef":"auto_0.1"
+  },
+  "DQN_PARAMS":{
+     "tau":1,
+     "batch_size":256,
+     "buffer_size":30000,
+     "learning_rate":0.0005,
+     "gamma":0.99,
+   "exploration_final_eps": 0.2, 
+   "exploration_fraction": 0.2, 
+   "target_update_interval": 16000, 
+   "learning_starts": 5000, 
+   "train_freq": 8, 
+   "gradient_steps": 1
+  },
+   "-----------------Optimization part-----------------": 0,
+    "study_name": "optimization2",
+    "number_of_objectives": 2
+}
