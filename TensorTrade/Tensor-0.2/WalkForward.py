@@ -28,5 +28,8 @@ while cursor <len(dataX):
           validation_data=(X_test,
           Y_test),
           epochs=epochs, batch_size=batch_size, verbose=2, callbacks=[model_checkpoint_callback])
+
     pred.append(model.predict(X_train))
     pred.append(model.predict(X_test))
+
+    

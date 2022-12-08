@@ -78,7 +78,7 @@
      "ent_coef":0.01,
      "vf_coef":0.1,
      "learning_rate":0.0009,
-     "TOTAL_TIMESTEPS":180000,
+     "TOTAL_TIMESTEPS":110000,
      "SEED":0
   },
   "PPO_PARAMS":{

@@ -259,15 +259,16 @@ class FeatureEngineering:
         total_normal_data= pd.concat([Normalize_data,orderbook_normal],axis=1)  
         total_unnormal_data= pd.concat([unnormal_data,orderbook_unnormal],axis=1)  
 
-        testNumbers = int(len(total_normal_data) * self.test_percent)
+        # testNumbers = int(len(total_normal_data) * self.test_percent)
 
-        trainData =  total_normal_data.iloc[: -testNumbers]
-        testData =   total_normal_data.iloc[-testNumbers : ]
+        # trainData =  total_normal_data.iloc[: -testNumbers]
+        # testData =   total_normal_data.iloc[-testNumbers : ]
 
-        trainData_unnormal =  total_unnormal_data.iloc[: -testNumbers]
-        testData_unnormal = total_unnormal_data.iloc[-testNumbers : ]
+        # trainData_unnormal =  total_unnormal_data.iloc[: -testNumbers]
+        # testData_unnormal = total_unnormal_data.iloc[-testNumbers : ]
 
-        train_dates= total_dates[: -testNumbers]
-        test_dates= total_dates[-testNumbers: ]
+        # train_dates= total_dates[: -testNumbers]
+        # test_dates= total_dates[-testNumbers: ]
         #return normal and unnormal datasets
-        return (trainData,testData,trainData_unnormal,testData_unnormal,train_dates,test_dates)
+        return (total_normal_data,total_unnormal_data,total_dates)
+
